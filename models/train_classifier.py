@@ -70,8 +70,8 @@ def build_model():
     parameters = {
         'vect__max_df': (0.5, 0.75, 1.0),
         'clf__estimator__criterion': ['entropy', 'gini'],
-        'clf__estimator__min_samples_split': [2, 3, 4],
-        'clf__estimator__n_estimators': [10, 50, 100]}
+        'clf__estimator__max_depth': [None, 5, 10],
+        'clf__estimator__max_features': ['auto', 'log2']}
     # Create grid search object
     cv = GridSearchCV(pipeline, param_grid=parameters, cv=3, n_jobs=3)
     
